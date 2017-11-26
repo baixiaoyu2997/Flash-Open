@@ -22,7 +22,9 @@ this extension looks like `ctrl+p`,now let's talk about its shortcomings:
 
 -----------------------------------
 
-![](https://github.com/baixiaoyu2997/Flash-Open/blob/v0.1.0/image/f1.png?raw=true)
+![](https://raw.githubusercontent.com/baixiaoyu2997/Flash-Open/master/image/quickOpenFile.gif)  
+
+![](https://raw.githubusercontent.com/baixiaoyu2997/Flash-Open/master/image/openFolder.gif)
 
 ## Extension Settings
 
