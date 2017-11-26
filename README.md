@@ -14,7 +14,7 @@ this extension for quick open file or folder by hot key,this usually applies to 
 
 -----------------------------------
 
-![](image/f1.png)
+![](https://github.com/baixiaoyu2997/Flash-Open/blob/v0.1.0/image/f1.png?raw=true)
 
 ## Extension Settings
 
