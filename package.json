@@ -13,7 +13,7 @@
         "color": "#0273D4",
         "theme": "dark"
     },
-    "keywords": ["quick", "open", "flash", "file", "folder", "note"],
+    "keywords": ["quick", "open", "flash", "file", "folder"],
     "author": {
         "name": "baixiaoyu2997(XiaoYu Bai)",
         "email": "bxy2997@sina.com",
@@ -50,8 +50,8 @@
             "mac": "alt+o"
         }, {
             "command": "extension.flashOpenFolder",
-            "key": "shift+o",
-            "mac": "shift+o"
+            "key": "ctrl+alt+o",
+            "mac": "ctrl+alt+o"
         }],
         "configuration": [{
             "type": "object",

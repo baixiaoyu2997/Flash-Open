@@ -1,6 +1,14 @@
 # flash-open
 
-this extension for quick open file or folder by hot key,this usually applies to writing notes
+this extension for quick open file or folder by hot key
+
+## Why I need this?
+this extension looks like `ctrl+p`,now let's talk about its shortcomings:  
+1. it can not open unopened files quickly  
+1. it can not keep the file's history all the time  
+
+ flashOpen faster than it,flashOpen can open specify the file by shortcut keys,this usually helps in writing notes quickly or check the documentation.  
+ sometimes some private folders will be stored in a single folder, such as dropbox,when you want to quickly view the file in the dropbox, and do not switch the current workspace,flashOpen will be helpful
 
 ## Features
 
