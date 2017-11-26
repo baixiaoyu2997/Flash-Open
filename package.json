@@ -1,0 +1,71 @@
+{
+    "name": "flash-open",
+    "displayName": "Flash-Open",
+    "description": "quick open file and folder",
+    "version": "0.1.0",
+    "publisher": "Flash-Open",
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.flashOpenFile",
+        "onCommand:extension.flashOpenFolder"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.flashOpenFile",
+                "title": "Flash open specified file"
+            },
+            {
+                "command": "extension.flashOpenFolder",
+                "title": "Flash open specified folder"
+            }
+        ],
+        "keybindings":[{
+            "command": "extension.flashOpenFile",
+            "key": "alt+o",
+            "mac":"alt+o"
+        },{
+            "command": "extension.flashOpenFolder",
+            "key": "shift+o",
+            "mac":"shift+o"
+        }],
+        "configuration":[
+            {
+                "type":"object",
+                "title": "FlashOpen configuration",
+                "properties": {
+                    "flashOpen.filePath":{
+                        "type":"string",
+                        "description":"Quickly open the specified file"
+                    },
+                    "flashOpen.folderPath":{
+                        "type":"string",
+                        "default":"./",
+                        "description":"Quickly open the specified folder"
+                    },
+                    "flashOpen.fileIgnore":{
+                        "type":"array",
+                        "description":"the file is ignored"
+                    },
+                    "flashOpen.folderIgnore":{
+                        "type":"array",
+                        "description":"the folder is ignored"
+                    }
+                }
+            }
+        ]
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.6.1",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
