@@ -2,22 +2,40 @@
     "name": "flash-open",
     "displayName": "Flash-Open",
     "description": "quick open file and folder",
+    "icon": "icon/icon.png",
     "version": "0.1.0",
-    "publisher": "Flash-Open",
+    "publisher": "baixiaoyu2997",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/baixiaoyu2997/Flash-Open"
+    },
+    "galleryBanner": {
+        "color": "#0273D4",
+        "theme": "dark"
+    },
+    "keywords": ["quick", "open", "flash", "file", "folder", "note"],
+    "author": {
+        "name": "baixiaoyu2997(XiaoYu Bai)",
+        "email": "bxy2997@sina.com",
+        "url": "https://github.com/baixiaoyu2997"
+    },
     "engines": {
         "vscode": "^1.18.0"
     },
     "categories": [
         "Other"
     ],
+    "bugs": {
+        "url": "https://github.com/baixiaoyu2997/Flash-Open/issues"
+    },
+    "homepage":"https://github.com/baixiaoyu2997/Flash-Open/blob/master/README.md",
     "activationEvents": [
         "onCommand:extension.flashOpenFile",
         "onCommand:extension.flashOpenFolder"
     ],
     "main": "./extension",
     "contributes": {
-        "commands": [
-            {
+        "commands": [{
                 "command": "extension.flashOpenFile",
                 "title": "Flash open specified file"
             },
@@ -26,40 +44,38 @@
                 "title": "Flash open specified folder"
             }
         ],
-        "keybindings":[{
+        "keybindings": [{
             "command": "extension.flashOpenFile",
             "key": "alt+o",
-            "mac":"alt+o"
-        },{
+            "mac": "alt+o"
+        }, {
             "command": "extension.flashOpenFolder",
             "key": "shift+o",
-            "mac":"shift+o"
+            "mac": "shift+o"
         }],
-        "configuration":[
-            {
-                "type":"object",
-                "title": "FlashOpen configuration",
-                "properties": {
-                    "flashOpen.filePath":{
-                        "type":"string",
-                        "description":"quickly open the specified file,e.g.'E:\\workspace\\note.md'"
-                    },
-                    "flashOpen.folderPath":{
-                        "type":"string",
-                        "default":"./",
-                        "description":"quickly open the specified folder,e.g.'E:\\workspace'"
-                    },
-                    "flashOpen.fileIgnore":{
-                        "type":"array",
-                        "description":"the specified file is not displayed in the list,e.g.'['doc','jpg','pptx']'"
-                    },
-                    "flashOpen.folderIgnore":{
-                        "type":"array",
-                        "description":"the specified folder is not displayed in the list,e.g.'['node_modules']'"
-                    }
+        "configuration": [{
+            "type": "object",
+            "title": "FlashOpen configuration",
+            "properties": {
+                "flashOpen.filePath": {
+                    "type": "string",
+                    "description": "quickly open the specified file,e.g.'E:\\workspace\\note.md'"
+                },
+                "flashOpen.folderPath": {
+                    "type": "string",
+                    "default": "./",
+                    "description": "quickly open the specified folder,e.g.'E:\\workspace'"
+                },
+                "flashOpen.fileIgnore": {
+                    "type": "array",
+                    "description": "the specified file is not displayed in the list,e.g.'['doc','jpg','pptx']'"
+                },
+                "flashOpen.folderIgnore": {
+                    "type": "array",
+                    "description": "the specified folder is not displayed in the list,e.g.'['node_modules']'"
                 }
             }
-        ]
+        }]
     },
     "devDependencies": {
         "typescript": "^2.6.1",
