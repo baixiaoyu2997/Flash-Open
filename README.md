@@ -1,65 +1,30 @@
-# flash-open README
+# flash-open
 
-This is the README for your extension "flash-open". After writing up a brief description, we recommend including the following sections.
+this extension for quick open file or folder by hot key,this usually applies to writing notes
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. quick open file, by hot key or command,keyboard shortcuts:`alt+o`
+	
+1. quick shows a folder selection list. by hot key or command,keyboard shortcuts:`shift+o`
+	
+1. You can specify ignored files
+    
+1. You can specify ignored folders
 
-For example if there is an image subfolder under your extension project workspace:
+-----------------------------------
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![](image/f1.png)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* `flashOpen.filePath`: quickly open the specified file,e.g.,'E:\workspace\note.txt'
+* `flashOpen.folderPath`: quickly open the specified folder,e.g.,'E:\workspace'
+* `flashOpen.fileIgnore`: the specified file is not displayed in the list,e.g.,'['doc','jpg','pptx']'
+* `flashOpen.folderIgnore`: the specified folder is not displayed in the list ,e.g.,'['node_modules']'
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of

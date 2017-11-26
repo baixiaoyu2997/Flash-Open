@@ -42,20 +42,20 @@
                 "properties": {
                     "flashOpen.filePath":{
                         "type":"string",
-                        "description":"Quickly open the specified file"
+                        "description":"quickly open the specified file,e.g.'E:\\workspace\\note.md'"
                     },
                     "flashOpen.folderPath":{
                         "type":"string",
                         "default":"./",
-                        "description":"Quickly open the specified folder"
+                        "description":"quickly open the specified folder,e.g.'E:\\workspace'"
                     },
                     "flashOpen.fileIgnore":{
                         "type":"array",
-                        "description":"the file is ignored"
+                        "description":"the specified file is not displayed in the list,e.g.'['doc','jpg','pptx']'"
                     },
                     "flashOpen.folderIgnore":{
                         "type":"array",
-                        "description":"the folder is ignored"
+                        "description":"the specified folder is not displayed in the list,e.g.'['node_modules']'"
                     }
                 }
             }
