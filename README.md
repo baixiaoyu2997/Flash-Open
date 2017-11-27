@@ -12,9 +12,9 @@ this extension looks like `ctrl+p`,now let's talk about its shortcomings:
 
 ## Features
 
-1. quick open file, by hot key or command,keyboard shortcuts:`alt+o`
+1. quick open file, by hot key or command,keyboard shortcuts: `alt+o`
 	
-1. quick shows a folder selection list. by hot key or command,keyboard shortcuts:`shift+o`
+1. quick shows a folder selection list. by hot key or command,keyboard shortcuts: `ctrl+alt+o`
 	
 1. You can specify ignored files
     
