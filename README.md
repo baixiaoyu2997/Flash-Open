@@ -37,4 +37,9 @@ this extension looks like `ctrl+p`,now let's talk about its shortcomings:
 
 ### 0.1.0
 
-Initial release of
+* Initial release of
+
+### 0.2.0
+
+* add file&folder icon  
+* add Back to previous menu options

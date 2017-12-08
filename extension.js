@@ -15,8 +15,7 @@ function activate(context) {
         let config = vscode.workspace.getConfiguration('flashOpen');
 
         if (config.get("filePath") === "" || !fs.statSync(config.get("filePath")).isFile()) {
-            vscode.window.showErrorMessage("FlashOpen: error path,please reset filePath");
-            return;
+            return  vscode.window.showErrorMessage("FlashOpen: error path,please reset filePath");
         }
         _openFile(config.get("filePath"));
     })
@@ -28,8 +27,7 @@ function activate(context) {
         if (fs.statSync(config.get("folderPath")).isDirectory()) {
             _foreachFolder(config.get("folderPath"));
         } else {
-            vscode.window.showErrorMessage("FlashOpen: error path,please reset folderPath");
-            return;
+            return  vscode.window.showErrorMessage("FlashOpen: error path,please reset folderPath");
         }
     })
 
@@ -43,20 +41,19 @@ const _openFile = function (filePath) {
             //显示文本
             vscode.window.showTextDocument(document)
         }, error => {
-            vscode.window.showErrorMessage("FlashOpen: " + error.message);
-            return;
+            return vscode.window.showErrorMessage("FlashOpen: " + error.message);
         })
     } catch (error) {
-        vscode.window.showErrorMessage(error.message);
-        return;
+        return vscode.window.showErrorMessage(error.message);
     }
 }
-const _foreachFolder = function (folderPath) {
+const _foreachFolder = function (folderPath,upperFolder) {
     let fileObj = {};
     let fileArr = [];
     let folderIgnore = "";
     let fileIgnore = "";
     let config = vscode.workspace.getConfiguration('flashOpen');
+    
     //添加忽略文件
     if (config.get("fileIgnore").some(function (item, index, array) {
             let file = item + "|";
@@ -65,8 +62,7 @@ const _foreachFolder = function (folderPath) {
             return item === ""
         })) {
         fileIgnore = "";
-        vscode.window.showErrorMessage("FlashOpen: fileIgnore array can not contain an empty string");
-        return;
+        return vscode.window.showErrorMessage("FlashOpen: fileIgnore array can not contain an empty string");
     }
 
     //添加忽略文件夹
@@ -77,8 +73,7 @@ const _foreachFolder = function (folderPath) {
             return item === ""
         })) {
         folderIgnore = "";
-        vscode.window.showErrorMessage("FlashOpen: folderIgnore array can not contain an empty string");
-        return;
+        return vscode.window.showErrorMessage("FlashOpen: folderIgnore array can not contain an empty string");
     }
 
     try {
@@ -93,13 +88,21 @@ const _foreachFolder = function (folderPath) {
                     let fileDir = path.join(filePath, filename);
                     let fileReg = fileIgnore ? new RegExp("\.(?:" + fileIgnore + ")$") : false;
                     let folderReg = folderIgnore ? new RegExp("(\\" + folderIgnore + ")$") : false;
+                    let icon = "$(file-directory)  ";
+                    if (fs.statSync(fileDir).isFile()) icon = "$(file-text)  ";
 
-                    fileObj[filename] = fileDir;
-
+                    fileObj[icon+filename] = fileDir;
                     if (!(folderReg && folderReg.test(filename)) && !(fileReg && fileReg.test(filename))) {
-                        fileArr.push(filename);
+                        fileArr.push(icon+filename);
                     }
                 });
+                //添加返回上层
+                //&&(upperFolder!==config.get("folderPath"))
+                //filePath
+                if (upperFolder&&(filePath!==config.get("folderPath"))) {
+                    fileArr.push("$(arrow-left)  ".repeat(4));
+                    fileObj["$(arrow-left)  ".repeat(4)] = upperFolder;
+                }
                 vscode.window.showQuickPick(fileArr).then(function (e) {
                     //处理选中的文件
                     fs.stat(fileObj[e], function (error, stats) {
@@ -109,12 +112,10 @@ const _foreachFolder = function (folderPath) {
                             console.warn('获取文件stats失败');
                         } else {
                             if (isFile) {
-                                _openFile(fileObj[e])
-                                return;
+                                return _openFile(fileObj[e]);
                             }
                             if (isDir) {
-                                _foreachFolder(fileObj[e])
-                                return;
+                                return _foreachFolder(fileObj[e],fileObj[e].substring(0,fileObj[e].lastIndexOf("\\")));
                             }
                         }
                     })
@@ -123,8 +124,7 @@ const _foreachFolder = function (folderPath) {
             }
         });
     } catch (error) {
-        vscode.window.showErrorMessage(error.message);
-        return;
+        return  vscode.window.showErrorMessage(error.message);
     }
 }
 exports.activate = activate;
